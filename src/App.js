@@ -11,18 +11,26 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const sudokuInput = document.getElementById("sudokuInput").value;
+  
+    if (!sudokuInput.trim()) {
+      setResult("Input is empty. Please enter a valid JSON array.");
+      setResultColor("bg-red-500 text-white");
+      return;
+    }
+  
     try {
       const board = JSON.parse(sudokuInput);
       const isValid = Validator(board);
       setResult(isValid ? "Valid Sudoku Board" : "Invalid Sudoku Board");
       setResultColor(isValid ? "bg-green-500 text-white" : "bg-red-500 text-white");
-      //reset the sudukoInput value
+      // Reset the sudokuInput value
       document.getElementById("sudokuInput").value = "";
     } catch (error) {
-      setResult("Invalid input format. Please enter a valid JSON array.");
+      setResult("Incorrect format. Please enter a valid JSON array.");
       setResultColor("bg-red-500 text-white");
     }
   };
+  
 
   const toggleModal = () => {
     setShowModal(!showModal);
