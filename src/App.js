@@ -16,6 +16,8 @@ function App() {
       const isValid = Validator(board);
       setResult(isValid ? "Valid Sudoku Board" : "Invalid Sudoku Board");
       setResultColor(isValid ? "bg-green-500 text-white" : "bg-red-500 text-white");
+      //reset the sudukoInput value
+      document.getElementById("sudokuInput").value = "";
     } catch (error) {
       setResult("Invalid input format. Please enter a valid JSON array.");
       setResultColor("bg-red-500 text-white");
