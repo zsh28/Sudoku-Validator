@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./index.css";
 import Validator from "./Validator";
 import handleFileUpload from "./FileReader";
@@ -12,7 +12,7 @@ function App() {
     e.preventDefault();
     const sudokuInput = document.getElementById("sudokuInput").value;
   
-    if (!sudokuInput.trim()) {
+    if (sudokuInput === "") {
       setResult("Input is empty. Please enter a valid JSON array.");
       setResultColor("bg-red-500 text-white");
       return;
